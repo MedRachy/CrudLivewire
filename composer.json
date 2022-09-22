@@ -1,6 +1,6 @@
 {
     "name": "medrachy/crud-livewire",
-    "description": "Generate the CRUD livewire component for a modal",
+    "description": "Generate the CRUD livewire component for a model",
     "type": "library",
     "license": "MIT",
     "authors": [

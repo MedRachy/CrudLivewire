@@ -133,7 +133,7 @@ class BuildCrudCommand extends Command
     [x] start with default inputypes 
     [ ] edit styling for the view (table)
     // ----------
-    [ ] publish on github
+    [x] publish on github
     [ ] write README doc 
     [ ] publish on packagist 
     
