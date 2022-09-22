@@ -1,0 +1,26 @@
+{
+    "name": "medrachy/crud-livewire",
+    "description": "Generate the CRUD livewire component for a modal",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mahrachy Mohamed",
+            "email": "mahrachymohamed@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Medrachy\\CrudLivewire\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Medrachy\\CrudLivewire\\CrudLivewireServiceProvider"
+            ]
+        }
+    }
+}

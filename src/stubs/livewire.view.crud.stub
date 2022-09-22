@@ -1,0 +1,121 @@
+<div class="p-6">
+    <div class="flex items-centre justify-end px-4 py-3 sm:py-6 text-right">
+        <x-jet-button wire:click="createShowModal">
+            {{ __('Create') }}
+        </x-jet-button>
+    </div>
+    {{-- The data table --}}
+    <div class="flex flex-col">
+        <div class="my-2 overflow-x-auto sm:mx-6 lg:mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    {{-- @if (session()->has('message'))
+                        <div class="alert alert-success text-center">{{ session('message') }}</div>
+                    @endif --}}
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead>
+                            <tr>
+                                @foreach ($attributes as $attribute)
+                                    <th class="table-head">{{ $attribute }}</th>
+                                @endforeach
+
+                                <th class="table-head">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @if ($data->count())
+                                @foreach ($data as $record)
+                                    <tr>
+                                        @foreach ($attributes as $attr)
+                                            <td class="table-data">{{ $record[$attr] }}</td>
+                                        @endforeach
+
+                                        <td class="table-data flex justify-end gap-2">
+                                            <x-jet-button wire:click="updateShowModal({{ $record->id }})">
+                                                {{ __('Update') }}
+                                            </x-jet-button>
+                                            <x-jet-danger-button class="ml-2"
+                                                wire:click="deleteShowModal({{ $record->id }})">
+                                                {{ __('Delete') }}
+                                                </x-jet-button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td class="table-data" colspan="4">No Results Found</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        {{ $data->links() }}
+    </div>
+
+    {{-- Modal Form --}}
+    <x-jet-dialog-modal wire:model="modalFormVisible">
+        <x-slot name="title">
+            @if ($modelId)
+                {{ __('Update Form') }}
+            @else
+                {{ __('Create Form') }}
+            @endif
+        </x-slot>
+
+        <x-slot name="content">
+            @foreach ($attributes as $attr)
+                <div class="mt-4">
+                    <x-jet-label for="for-{{ $attr }}" value="{{ $attr }}" />
+                    <x-jet-input wire:model.defer="{{ $modelName . '.' . $attr }}" id="for-{{ $attr }}"
+                        class="block mt-1 w-full" type="{{ !empty($inputTypes) ? $inputTypes[$attr] : 'text' }}" />
+
+                    @error($modelName . '.' . $attr)
+                        <span class="error">{{ $message }}</span>
+                    @enderror
+                </div>
+            @endforeach
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('modalFormVisible')" wire:loading.attr="disabled">
+                {{ __('Nevermind') }}
+            </x-jet-secondary-button>
+
+            @if ($modelId)
+                <x-jet-button class="ml-3" wire:click="update" wire:loading.attr="disabled">
+                    {{ __('Update') }}
+                    </x-jet-danger-button>
+                @else
+                    <x-jet-button class="ml-3" wire:click="store" wire:loading.attr="disabled">
+                        {{ __('Create') }}
+                        </x-jet-danger-button>
+            @endif
+        </x-slot>
+    </x-jet-dialog-modal>
+
+    {{-- The Delete Modal --}}
+    <x-jet-dialog-modal wire:model="modalConfirmDeleteVisible">
+        <x-slot name="title">
+            {{ __('Delete this record') }}
+        </x-slot>
+
+        <x-slot name="content">
+            {{ __('Are you sure you want to delete this record?') }}
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('modalConfirmDeleteVisible')" wire:loading.attr="disabled">
+                {{ __('Nevermind') }}
+            </x-jet-secondary-button>
+
+            <x-jet-danger-button class="ml-3" wire:click="delete" wire:loading.attr="disabled">
+                {{ __('Delete record') }}
+            </x-jet-danger-button>
+        </x-slot>
+    </x-jet-dialog-modal>
+</div>
