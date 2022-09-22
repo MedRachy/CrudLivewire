@@ -37,9 +37,9 @@ this command will perfom below actions :
 
 ```bash
 - generate the proper (className, modelName and viewName) from the tableName
-- create livewire directory "/app/Http/Livewire" if it doesn''\'t exist
+- create livewire directory "/app/Http/Livewire" if it doesnt exist
 - generate the livewire class "/app/Http/Livewire/{className}.php"
-- create livewire directory "/resources/views/livewire" if it doesn''\'t exist
+- create livewire directory "/resources/views/livewire" if it doesnt exist
 - generate the livewire view "/resources/views/livewire/{viewName}.blade.php"
 ```
 
