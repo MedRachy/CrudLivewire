@@ -2,7 +2,7 @@
 
 Generate the livewire class and view for a model using the fillable attributes or the database columns, by running one command and providing the table name as argument this package generate the files (class/view) with all CRUD functions
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## Features
 
@@ -33,15 +33,13 @@ After installation, run this command
  php artisan crud:build {tableName}   //example : users
 ```
 
-this command will perfom below actions :
+This command will perfom below actions :
 
-```bash
 - generate the proper (className, modelName and viewName) from the tableName
-- create livewire directory "/app/Http/Livewire" if it doesnt exist
+- create livewire directory if it doesn't exist "/app/Http/Livewire"
 - generate the livewire class "/app/Http/Livewire/{className}.php"
-- create livewire directory "/resources/views/livewire" if it doesnt exist
+- create livewire directory if it doesn't exist "/resources/views/livewire"
 - generate the livewire view "/resources/views/livewire/{viewName}.blade.php"
-```
 
 Next open the livewire class generated "/app/Http/Livewire/{className}.php"
 and add the proper properties for $rules and $inputTypes
