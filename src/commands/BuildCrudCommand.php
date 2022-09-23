@@ -134,7 +134,7 @@ class BuildCrudCommand extends Command
     [ ] edit styling for the view (table)
     // ----------
     [x] publish on github
-    [ ] write README doc 
+    [x] write README doc 
     [ ] publish on packagist 
     
 */

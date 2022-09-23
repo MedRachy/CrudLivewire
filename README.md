@@ -78,5 +78,5 @@ if you dont use Jetstream in your application you need to edit the view generate
 
 ## License
 
-The MIT License (MIT). Please see [License](https://choosealicense.com/licenses/mit/)
+The MIT License (MIT). Please see [License](LICENSE)
 File for more information
