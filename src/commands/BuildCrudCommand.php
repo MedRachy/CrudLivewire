@@ -121,20 +121,3 @@ class BuildCrudCommand extends Command
         return Str::studly(Str::singular($this->tableName));
     }
 }
-
-/*
-    [x] check if the table provided as argument exists 
-    [x] get the class name from the table name    
-    [x] check if the model exsits 
-    [x] create folder Livewire if dont exists
-    [x] generate the livewire class/view for the model
-    [x] update livewire class 
-    [x] use fillable attributes to show in table records / rules 
-    [x] start with default inputypes 
-    [ ] edit styling for the view (table)
-    // ----------
-    [x] publish on github
-    [x] write README doc 
-    [ ] publish on packagist 
-    
-*/
